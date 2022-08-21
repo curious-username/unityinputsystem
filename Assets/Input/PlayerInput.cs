@@ -5,62 +5,71 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
-    //get a reference and start an instanceof our input actions
-    //enable input action map, which map? dog.
-    //register the perform functions
-
+    private Vector3 _playerMovement;
+    private Animator _bearAnim;
     private PlayerInputActions _input;
-    [SerializeField] AudioSource _bark;
-    private float _speed = 5.0f;
-    private float _run = 5.0f;
-    private Vector2 movement;
     
-    
+
 
     private void Start()
     {
+
+
+        _bearAnim = GetComponent<Animator>();
         _input = new PlayerInputActions();
-        _input.Dog.Enable();
-        _input.Dog.Bark.performed += Bark_performed;
-        _input.Dog.Walk.performed += Walk_performed;
-        _input.Dog.Walk.canceled += Walk_canceled;
-        _input.Dog.Run.performed += Run_performed;
-        _input.Dog.Run.canceled += Run_canceled;
+        _input.Player.Enable();
+
+        _input.Player.BearWalk.performed += BearWalk_performed;
+        _input.Player.Sleep.performed += Sleep_performed;
+
+    }
+
+    private void Sleep_performed(InputAction.CallbackContext obj)
+    {
+        _bearAnim.SetTrigger("Sleep");
+
+    }
+
+    private void BearWalk_performed(InputAction.CallbackContext obj)
+    {
+        _playerMovement = obj.ReadValue<Vector3>();
+        var _defaultVector3 = new Vector3(0, 0, 0);
         
         
+        if(_playerMovement == _defaultVector3)
+        {
+            _bearAnim.ResetTrigger("WalkForward");
+            _bearAnim.ResetTrigger("WalkBackward");
+        }
     }
 
-    private void Run_canceled(InputAction.CallbackContext obj)
-    {
-        Debug.Log("Run Cancelled");
-    }
 
-    private void Run_performed(InputAction.CallbackContext obj)
-    {
-        Debug.Log("Run");
-    }
 
-    private void Walk_canceled(InputAction.CallbackContext obj)
-    {
-        movement = new Vector2(0, 0);
-    }
+
 
     private void Update()
     {
-        transform.Translate(movement * _speed * Time.deltaTime);
+        AnimationController();
+        transform.Translate(_playerMovement * Time.deltaTime * 1f);        
     }
 
-    private void Walk_performed(InputAction.CallbackContext obj)
+    void AnimationController()
     {
-        movement = obj.ReadValue<Vector2>();
-       
+        
+
+        if (_playerMovement.z == 1)
+        {
+            _bearAnim.SetTrigger("WalkForward");
+            _bearAnim.ResetTrigger("Sleep");
+        }
+        else if(_playerMovement.z == -1)
+        {
+            _bearAnim.SetTrigger("WalkBackward");
+            _bearAnim.ResetTrigger("Sleep");
+        }
+
+        
     }
 
-    private void Bark_performed(InputAction.CallbackContext obj)
-    {
-        _bark.Play();
-    }
-
-    
 
 }
