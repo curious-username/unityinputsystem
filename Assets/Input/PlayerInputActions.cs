@@ -48,83 +48,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""3D Vector"",
-                    ""id"": ""59be19d9-1d53-465c-8f2c-6008b2e062ac"",
-                    ""path"": ""3DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BearWalk"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""5914dad2-b1a9-4602-9c60-bd1002944573"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BearWalk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""f30cc8f9-ddca-4926-b101-ba95ff131852"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BearWalk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""8b51c164-ad95-4cb7-9920-aeb3b1032c39"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BearWalk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""3966a16b-e795-465d-bf13-7d5d9defaa93"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BearWalk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""forward"",
-                    ""id"": ""447d7b9e-0dc6-4810-8344-ae2863cee281"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BearWalk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""backward"",
-                    ""id"": ""e1c6fccd-9042-4c98-837a-89d3f1dc5ba0"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BearWalk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""71f46d0d-564d-4c0c-ab55-050236cf8a69"",
                     ""path"": ""<Keyboard>/z"",
@@ -134,6 +57,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Sleep"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""641fdb9b-7ecd-4291-aa6f-127b3b08cebb"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BearWalk"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5d4b43cc-448a-419c-82fb-713ef0ba05d7"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BearWalk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""921bfede-e394-4fcb-98ef-e7f60eaf1e3e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BearWalk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -164,6 +120,56 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""SpinMe"",
+            ""id"": ""8ae03c58-1fed-49e3-803e-4a20958b1b66"",
+            ""actions"": [
+                {
+                    ""name"": ""Go"",
+                    ""type"": ""Value"",
+                    ""id"": ""037d75bf-8e74-42e2-b87a-0491b0ed32ac"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""801b5793-ccdd-4e83-9e36-5a60d0ebe84a"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Go"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""bb7592da-331e-4d07-b7ca-7e12a05c4835"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Go"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""93ed62e7-e2a1-415b-9422-3ca80147c361"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Go"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -175,6 +181,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // ASL
         m_ASL = asset.FindActionMap("ASL", throwIfNotFound: true);
         m_ASL_PrintASL = m_ASL.FindAction("PrintASL", throwIfNotFound: true);
+        // SpinMe
+        m_SpinMe = asset.FindActionMap("SpinMe", throwIfNotFound: true);
+        m_SpinMe_Go = m_SpinMe.FindAction("Go", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -304,6 +313,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public ASLActions @ASL => new ASLActions(this);
+
+    // SpinMe
+    private readonly InputActionMap m_SpinMe;
+    private ISpinMeActions m_SpinMeActionsCallbackInterface;
+    private readonly InputAction m_SpinMe_Go;
+    public struct SpinMeActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public SpinMeActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Go => m_Wrapper.m_SpinMe_Go;
+        public InputActionMap Get() { return m_Wrapper.m_SpinMe; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SpinMeActions set) { return set.Get(); }
+        public void SetCallbacks(ISpinMeActions instance)
+        {
+            if (m_Wrapper.m_SpinMeActionsCallbackInterface != null)
+            {
+                @Go.started -= m_Wrapper.m_SpinMeActionsCallbackInterface.OnGo;
+                @Go.performed -= m_Wrapper.m_SpinMeActionsCallbackInterface.OnGo;
+                @Go.canceled -= m_Wrapper.m_SpinMeActionsCallbackInterface.OnGo;
+            }
+            m_Wrapper.m_SpinMeActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Go.started += instance.OnGo;
+                @Go.performed += instance.OnGo;
+                @Go.canceled += instance.OnGo;
+            }
+        }
+    }
+    public SpinMeActions @SpinMe => new SpinMeActions(this);
     public interface IPlayerActions
     {
         void OnBearWalk(InputAction.CallbackContext context);
@@ -312,5 +354,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     public interface IASLActions
     {
         void OnPrintASL(InputAction.CallbackContext context);
+    }
+    public interface ISpinMeActions
+    {
+        void OnGo(InputAction.CallbackContext context);
     }
 }

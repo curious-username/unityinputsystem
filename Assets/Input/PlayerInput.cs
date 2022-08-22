@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerInput : MonoBehaviour
 {
     private Vector3 _playerMovement;
+    private float _backforward;
     private Animator _bearAnim;
     private PlayerInputActions _input;
     
@@ -13,13 +15,12 @@ public class PlayerInput : MonoBehaviour
 
     private void Start()
     {
-
+        
 
         _bearAnim = GetComponent<Animator>();
         _input = new PlayerInputActions();
         _input.Player.Enable();
 
-        _input.Player.BearWalk.performed += BearWalk_performed;
         _input.Player.Sleep.performed += Sleep_performed;
 
     }
@@ -30,42 +31,32 @@ public class PlayerInput : MonoBehaviour
 
     }
 
-    private void BearWalk_performed(InputAction.CallbackContext obj)
-    {
-        _playerMovement = obj.ReadValue<Vector3>();
-        var _defaultVector3 = new Vector3(0, 0, 0);
-        
-        
-        if(_playerMovement == _defaultVector3)
-        {
-            _bearAnim.ResetTrigger("WalkForward");
-            _bearAnim.ResetTrigger("WalkBackward");
-        }
-    }
-
-
-
-
-
     private void Update()
     {
         AnimationController();
-        transform.Translate(_playerMovement * Time.deltaTime * 1f);        
+        _backforward = _input.Player.BearWalk.ReadValue<float>();
+        transform.Translate(Vector3.forward * Time.deltaTime * 1f * _backforward);        
+        
     }
 
     void AnimationController()
     {
         
 
-        if (_playerMovement.z == 1)
+        if (_backforward == 1)
         {
             _bearAnim.SetTrigger("WalkForward");
             _bearAnim.ResetTrigger("Sleep");
         }
-        else if(_playerMovement.z == -1)
+        else if(_backforward == -1)
         {
             _bearAnim.SetTrigger("WalkBackward");
             _bearAnim.ResetTrigger("Sleep");
+        }
+        else
+        {
+            _bearAnim.ResetTrigger("WalkForward");
+            _bearAnim.ResetTrigger("WalkBackward");
         }
 
         
